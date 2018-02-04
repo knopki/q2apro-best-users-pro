@@ -1,4 +1,4 @@
-# q2apro Premium Plugin: Best-Users-Pro
+# Free Premium Plugin: Best-Users-Pro
 
     "You want to motivate your community? You want to create a competition between your users every month? Well, you found the right plugin! By using the Best-Users-Pro plugin you push your users to be more active dramatically."
 
@@ -36,7 +36,7 @@
 
 # Installation
 
-    - Buy the plugin and download the ZIP file provided q2apro-best-users-pro.zip
+    - Download the plugin.
     - Make a full backup of your q2a database before installing the plugin.
     - Extract the folder q2apro-best-users-pro from the ZIP file.
     - Move the folder q2apro-best-users-pro to the qa-plugin folder of your Q2A installation.
@@ -53,5 +53,4 @@
 
 # Copyright
 
-	Copyright © q2apro.com - All rights reserved
-	A redistribution of this code is not permitted.
+All code herein is OpenSource GPL3. Feel free to build upon it and share with the world.
