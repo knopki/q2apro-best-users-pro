@@ -2,14 +2,14 @@
 
 /*
 	Plugin Name: Best Users PRO
-	Plugin URI: http://www.q2apro.com/plugins/best-users-pro
+	Plugin URI: 
 	Plugin Description: User scores get saved per month/year and rewards can be granted to your winning users. Widget and two separate pages.
 	Plugin Version: 1.2
 	Plugin Date: 2014-10-04
-	Plugin Author: q2apro.com
-	Plugin Author URI: http://www.q2apro.com
+	Plugin Author: q2apro
+	Plugin Author URI: 
 	Plugin Minimum Question2Answer Version: 1.6
-	Plugin Update Check URI: http://www.q2apro.com/pluginupdate?id=63
+	Plugin Update Check URI: 
 	
 	Licence: Copyright © q2apro.com - All rights reserved
 
