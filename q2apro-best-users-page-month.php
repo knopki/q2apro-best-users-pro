@@ -89,7 +89,7 @@
 			{
 				// remove whitespaces
 				$exludeusers = str_replace(' ', '', $exludeusers);
-				$exludeusers_query = 'WHERE ^userpoints.userid NOT IN ('.$exludeusers.')';
+				$exludeusers_query = 'AND ^userpoints.userid NOT IN ('.$exludeusers.')';
 				$exludeusers_query2 = 'AND ul.userid NOT IN ('.$exludeusers.')';
 			}
 		
@@ -175,9 +175,9 @@
 										FROM `^userpoints`
 										LEFT JOIN `^userscores` on ^userpoints.userid = ^userscores.userid 
 											AND YEAR(^userscores.date) = YEAR(CURDATE()) 
-											AND MONTH(^userscores.date) = MONTH(CURDATE()) '
-										.$exludeusers_query.' 
-										ORDER BY mpoints DESC, ^userpoints.userid DESC;');
+											AND MONTH(^userscores.date) = MONTH(CURDATE())
+										WHERE qa_userpoints.points > 0 AND qa_userscores.points > 0 '.$exludeusers_query.'
+										ORDER BY mpoints DESC, ^userpoints.userid DESC LIMIT '.$maxusersPage.';');
 				// thanks srini.venigalla for helping me with advanced mysql
 				// http://stackoverflow.com/questions/11085202/calculate-monthly-userscores-between-two-tables-using-mysql
 			}
@@ -186,11 +186,11 @@
 				$queryRecentScores = qa_db_query_sub('
 										SELECT ul.userid, ul.points - COALESCE(uf.points, 0) AS mpoints 
 										FROM `^userscores` ul 
-										LEFT JOIN (SELECT userid, points FROM `^userscores` WHERE `date` = "'.$intervalStart.'") AS uf
+										LEFT JOIN (SELECT userid, points FROM `^userscores` WHERE `points` > 0 AND `date` = "'.$intervalStart.'") AS uf
 										ON uf.userid = ul.userid
-										WHERE ul.date = "'.$intervalEnd.'" 
+										WHERE ul.points > 0 AND uf.points > 0 AND ul.date = "'.$intervalEnd.'"
 										'.$exludeusers_query2.' 
-										ORDER BY mpoints DESC;');
+										ORDER BY mpoints DESC LIMIT '.$maxusersPage.';');
 				// thanks raina77ow for helping me with mysql
 				// http://stackoverflow.com/questions/11178599/mysql-get-difference-between-two-values-in-one-table-multiple-userids
 			}
